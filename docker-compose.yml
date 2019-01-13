@@ -4,7 +4,7 @@ version: '2.3' # specify docker-compose version
 services:
   angular:
     hostname: localhost
-    container_name: angular-app
+    #container_name: angular-app
     build: angular-app
     ports:
       - 8181:80
