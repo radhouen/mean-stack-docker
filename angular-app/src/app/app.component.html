@@ -4,9 +4,12 @@
   </div>
 </nav>
 <div class="container">
-  <div [style.margin-top.px]="10" class="row">
-    <h3>Add new person</h3>
-    <form class="form-inline">
+  <div  class="row">
+
+    <div class="card col-12">
+  <div class="card-header">
+<p>Add new person</p>  </div>
+    <form >
       <div class="form-group">
         <label for="name">Name</label>
         <input type="text" class="form-control" id="name" #name>
@@ -18,10 +21,20 @@
       <button type="button" (click)="addPerson(name.value, age.value)" class="btn btn-primary">Add person</button>
     </form>
   </div>
-  <div [style.margin-top.px]="10" class="row">
-    <h3>People</h3>
-    <div [style.margin-right.px]="10" class="card card-block col-md-3" *ngFor="let person of people">
-      <h4 class="card-title">{{person.name}}  {{person.age}}</h4>
-    </div>
   </div>
+
+  <table class="table table-dark table-bordered" *ngIf="people.length > 0">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Age</th>
+      </tr>
+    </thead>
+    <tbody>
+       <tr *ngFor="let person of people">
+         <td> {{person.name}} </td>
+         <td>  {{person.age}} </td>
+       </tr>
+     </tbody>
+   </table>
 </div>
