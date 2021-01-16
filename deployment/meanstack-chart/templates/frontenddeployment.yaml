@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: frontend
+  name: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - image: "{{ .Values.image_front.repository }}:{{ .Values.image_front.tag | default .Chart.AppVersion }}"
+        name: mean-stack-docker-angular-bvpts
+        ports:
+          - containerPort: 80
+        resources: {}
+status: {}

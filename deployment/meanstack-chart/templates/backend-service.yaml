@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: backend-service
+  name: backend-service
+spec:
+  ports:
+  - name: {{ .Values.service_backend.name }}
+    port: {{ .Values.service_backend.port }}
+    protocol: TCP
+    targetPort: {{ .Values.service_backend.targetPort }}
+  selector:
+    app: backend
+  type: {{ .Values.service_backend.type }}
+status:
+  loadBalancer: {}

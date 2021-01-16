@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: backend
+  name: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: backend
+    spec:
+      containers:
+      - image: "{{ .Values.image_back.repository }}:{{ .Values.image_back.tag | default .Chart.AppVersion }}"
+        name: mean-stack-docker-express-7mnb8
+        ports:
+          - containerPort: 3000
+        resources: {}
+status: {}

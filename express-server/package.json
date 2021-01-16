@@ -1,0 +1,13 @@
+{
+  "name": "express-server",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "body-parser": "~1.15.2",
+    "express": "~4.14.0",
+    "mongoose": "^4.7.0"
+  }
+}

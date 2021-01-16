@@ -1,0 +1,29 @@
+1- Create image for Frontend && Backend done
+2- Tag docker image done
+3- Push docker image to registry done
+4- Create deployment for Frontend Backend and Database done
+5- Create Secret for the database (user & password) done
+6- Create persistent volume (PV) for the database done
+7- Create persistent volume claim (PVC) for the database done
+8- Create service type clusterIp for communication between frontend and backend done
+9- Create service type clusterIp for communication between backend and database  done
+10-Create service type Node port to expose the frontend to cluster outside done
+11-Create ingress for the frontend application
+
+
+ordre:
+storageclassname
+persistantVolume
+persistantVolumeClaim
+secret
+mongodeployment
+mongoservice
+backenddeployment
+backendService
+frontenddeployment
+frontendservice
+
+
+packagemanagerforkubernetes
+
+

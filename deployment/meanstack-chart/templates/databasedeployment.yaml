@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: database
+  name: database
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: database
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: database
+    spec:
+      containers:
+      - image: "{{ .Values.image_db.repository }}:{{ .Values.image_db.tag | default .Chart.AppVersion }}"
+        name: mongo
+        ports:
+          - containerPort: 27017
+        resources: {}
+        envFrom:
+          - secretRef:
+              name: database-secret
+        volumeMounts:
+          - name: storage
+            mountPath: /data/db
+      volumes:
+        - name: storage
+          persistentVolumeClaim:
+            claimName: mongo-pvc
+status: {}
